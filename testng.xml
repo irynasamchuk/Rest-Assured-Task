@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="restAssuredTestSuite">
+    <test name="restAssuredTrello">
+        <classes>
+            <class name="testCases.PostCreateBoard"/>
+            <class name="testCases.GetBoard"/>
+            <class name="testCases.DeleteBoard"/>
+        </classes>
+    </test>
+</suite>
