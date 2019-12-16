@@ -2,32 +2,32 @@ package testCases;
 
 import base.BaseTest;
 import com.google.gson.Gson;
+import endpoints.EndPoints;
 import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
 import io.restassured.http.Method;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import utilities.TestData;
+
 import java.util.HashMap;
 
 
 public class PostCreateBoard extends BaseTest {
+    private String boardName = "POST create board";
+
     @BeforeClass
     public void createBoard() throws InterruptedException {
-
-        HashMap<String, String> jsonMap = new HashMap<>();
-        jsonMap.put("name", boardName);
-        jsonMap.put("key", key);
-        jsonMap.put("token", token);
-
-        String boardJson = new Gson().toJson(jsonMap);
+        String boardJson = new TestData().getBoardTestData(boardName);
 
         RestAssured.baseURI = baseURL;
 
         httpRequest = RestAssured.given();
-        httpRequest.header("Content-Type", "application/json");
+        httpRequest.contentType(ContentType.JSON);
         httpRequest.body(boardJson);
 
-        response = httpRequest.request(Method.POST, endpoint);
+        response = httpRequest.request(Method.POST, EndPoints.BOARDS);
 
         Thread.sleep(time);
     }
