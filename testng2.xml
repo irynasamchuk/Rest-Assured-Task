@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="restAssuredTestSuiteCucumber">
+    <test name="restAssuredTrelloCucumber">
+        <classes>
+            <class name="cucumber.runners.TestRunner"/>
+        </classes>
+    </test>
+</suite>

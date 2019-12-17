@@ -1,7 +1,6 @@
 package utilities;
 
 import base.BaseTest;
-import base.Credentials;
 import com.google.gson.Gson;
 
 import java.util.HashMap;
